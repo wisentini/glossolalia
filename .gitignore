@@ -1,0 +1,8 @@
+# backend
+backend/.git
+backend/src/api/config/.env
+
+# frontend
+frontend/.git
+frontend/src/config/.env
+frontend/src/api/config/.env

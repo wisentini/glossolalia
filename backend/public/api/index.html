@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>glossolalia-backend</title>
+  </head>
+
+  <body>
+    <h1>glossolalia (API documentation)</h1>
+    <a
+        href="https://glossolalia-backend.herokuapp.com"
+    >
+        glossolalia-backend.herokuapp.com
+    </a>
+    <p>
+      All queries must be encoded (e.g., c++ turns into c%2B%2B). You may use
+      <a href="https://meyerweb.com/eric/tools/dencoder/">this tool</a>.
+    </p>
+    <h2>programming-language</h2>
+    <span>Endpoint that returns data about programming languages.</span>
+    <h3>Endpoints</h3>
+    <h3>/api/programming-languages</h3>
+    <h4>Description</h4>
+    <span>Get all programming languages from database.</span>
+    <h4>Parameters</h4>
+    <table>
+      <tbody>
+        <tr>
+          <th align="left">name</th>
+          <th align="left">type</th>
+          <th align="left">multiple</th>
+          <th align="left">return</th>
+          <th align="left">example</th>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>integer</td>
+          <td>false</td>
+          <td>n == 1</td>
+          <td>?id=5</td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>string</td>
+          <td>false</td>
+          <td>n == 1</td>
+          <td>?name=php</td>
+        </tr>
+        <tr>
+          <td>first_appeared</td>
+          <td>integer</td>
+          <td>false</td>
+          <td>n &gt;= 0</td>
+          <td>?first_appeared=1995</td>
+        </tr>
+        <tr>
+          <td>paradigm</td>
+          <td>string[]</td>
+          <td>true;</td>
+          <td>n &gt;= 0;</td>
+          <td>?paradigm=functional,imperative</td>
+        </tr>
+        <tr>
+          <td>designed_by</td>
+          <td>string[]</td>
+          <td>true;</td>
+          <td>n &gt;= 0;</td>
+          <td>?designed_by=Rasmus%20Lerdorf</td>
+        </tr>
+        <tr>
+          <td>typing_discipline</td>
+          <td>string[]</td>
+          <td>true;</td>
+          <td>n &gt;= 0;</td>
+          <td>?typing_discipline=strong,dynamic</td>
+        </tr>
+        <tr>
+          <td>influenced_by</td>
+          <td>string[]</td>
+          <td>true;</td>
+          <td>n &gt;= 0;</td>
+          <td>?influenced_by=perl,c%2B%2B</td>
+        </tr>
+        <tr>
+          <td>influenced</td>
+          <td>string[]</td>
+          <td>true;</td>
+          <td>n &gt;= 0;</td>
+          <td>?influenced=java,c%23</td>
+        </tr>
+        <tr>
+          <td>website_url;</td>
+          <td>string[]</td>
+          <td>true;</td>
+          <td>n &gt;= 0;</td>
+          <td>?website_url=https%3A%2F%2Fwww.scala-lang.org%2F</td>
+        </tr>
+        <tr>
+          <td>source_url</td>
+          <td>string[]</td>
+          <td>true;</td>
+          <td>n &gt;= 0;</td>
+          <td>
+            ?source_url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FHaskell_(programming_language)
+          </td>
+        </tr>
+        <tr>
+          <td>filename_extension</td>
+          <td>string[]</td>
+          <td>true;</td>
+          <td>n &gt;= 0;</td>
+          <td>?filename_extension=.c%2C.h</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>
+        Some parameters accepts multiple values, provided with comma separated
+        strings.
+      </li>
+      <li>If no query is entered, all programming languages are fetch.</li>
+    </ul>
+    <h4>Example</h4>
+    <table>
+      <tbody>
+        <tr>
+          <th align="left">endpoint</th>
+          <th align="left">returns</th>
+        </tr>
+        <tr>
+          <td>/api/programming-languages</td>
+          <td>all programming languages</td>
+        </tr>
+        <tr>
+          <td>/api/programming-languages/?id=11</td>
+          <td>a single programming language of ID 11</td>
+        </tr>
+        <tr>
+          <td>/api/programming-languages/?name=perl</td>
+          <td>a single programming language of name perl</td>
+        </tr>
+        <tr>
+          <td>/api/programming-languages/?first_appeared=2001</td>
+          <td>all programming languages first appeared in 2001</td>
+        </tr>
+        <tr>
+          <td>/api/programming-languages/?paradigm=concurrent,functional</td>
+          <td>
+            all programming languages that have both concurrent and functional
+            paradigm
+          </td>
+        </tr>
+        <tr>
+          <td>/api/programming-languages/?designed_by=Ryan</td>
+          <td>all programming languages designed by someone named Ryan</td>
+        </tr>
+        <tr>
+          <td>
+            /api/programming-languages/?typing_discipline=static, inferred
+          </td>
+          <td>
+            all programming languages that have both static and inferred typing
+            discipline
+          </td>
+        </tr>
+        <tr>
+          <td>/api/programming-languages/?influenced_by=c,java</td>
+          <td>all programming languages influenced by c and java</td>
+        </tr>
+        <tr>
+          <td>/api/programming-languages/?influenced=rust,go</td>
+          <td>all programming languages that influenced rust and go</td>
+        </tr>
+        <tr>
+          <td>
+            /api/programming-languages/?website_url=https%3A%2F%2Fwww.perl.org%2F
+          </td>
+          <td>
+            all programming languages that have the entered url as website
+          </td>
+        </tr>
+        <tr>
+          <td>
+            /api/programming-languages/?source_url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPHP
+          </td>
+          <td>all programming languages that have the entered url as source</td>
+        </tr>
+        <tr>
+          <td>/api/programming-languages/?filename_extension=.php%2C.phar</td>
+          <td>
+            all programming languages that have .php and .phar as filename
+            extension
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>keyword</h2>
+    <span
+      >Endpoint that returns data about programming languages keywords.</span
+    >
+    <h3>Endpoints</h3>
+    <h3>/api/keywords</h3>
+    <h4>Description</h4>
+    <span>Get all programming languages keywords from database.</span>
+    <h4>Parameters</h4>
+    <table>
+      <tbody>
+        <tr>
+          <th align="left">name</th>
+          <th align="left">type</th>
+          <th align="left">multiple</th>
+          <th align="left">return</th>
+          <th align="left">example</th>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>integer</td>
+          <td>false</td>
+          <td>n == 1</td>
+          <td>?id=8</td>
+        </tr>
+        <tr>
+          <td>programming_language_id</td>
+          <td>integer</td>
+          <td>false</td>
+          <td>n &gt;= 0</td>
+          <td>?programming_language_id=3</td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>string</td>
+          <td>false</td>
+          <td>n &gt;= 0</td>
+          <td>?name=enum</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
