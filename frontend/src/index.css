@@ -1,8 +1,11 @@
-html, body {
+html,
+body {
+  color: #1d1d1f;
+  background-color: #e5e5ea;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   margin: 0;
-}
-
-#root {
-  height: 100vh;
-  width: 100vw;
 }

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Network } from "vis-network/peer/esm/vis-network";
 
-import './index.css';
+import style from './style.module.css';
 
 export const Graph = (props) => {
   const nodes = props.nodes;
@@ -17,7 +17,7 @@ export const Graph = (props) => {
   return (
     <div
       ref={container}
-      className='container'
+      className={style.container}
     />
   );
 };
