@@ -1,6 +1,8 @@
 import { request } from '../api/request/request';
 import { pick } from "lodash";
 
+import { colors } from '../config/colors';
+
 export class Repository {
   #endpoint;
 
@@ -31,9 +33,16 @@ export class Repository {
       .join('&');
   }
 
-  _getRandomColor() {
-    const n = (Math.random() * 0xfffff * 1000000).toString(16);
-    return '#' + n.slice(0, 6);
+  #arrayHasIndex(array, index) {
+    return Array.isArray(array) && array.hasOwnProperty(index);
+  }
+
+  _getColor(index) {
+    if (!this.#arrayHasIndex(colors, index)) {
+      index = Math.floor(Math.random() * colors.length);
+    }
+
+    return colors[index];
   }
 
   _filterByKey = (data, key) => {

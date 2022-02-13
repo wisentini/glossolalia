@@ -2,14 +2,22 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: 5px;
 }
 
 .title {
-  font-size: 48px;
-  font-weight: bold;
+  color: #2c2c2e;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0em;
+  line-height: 1.1;
 }
 
 .subtitle {
-  font-size: 20px;
+  color: #48484a;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  line-height: 1.47059;
 }

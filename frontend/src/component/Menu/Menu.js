@@ -6,15 +6,23 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export const Menu = () => {
-  const [relation, setRelation] = useState(null);
+import style from './style.module.css';
+
+export const Menu = (props) => {
+  const [relation, setRelation] = useState(props.defaultRelation);
+  const handleMenuChange = props.handleMenuChange;
 
   const handleChange = (event) => {
-    setRelation(event.target.value);
+    const value = event.target.value;
+
+    if (value !== relation) {
+      setRelation(value);
+      handleMenuChange(value);
+    }
   };
 
   return (
-    <Box sx={{ minWidth: 160 }}>
+    <Box className={style.container}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Relation</InputLabel>
         <Select
@@ -24,9 +32,9 @@ export const Menu = () => {
           label="Relation"
           onChange={handleChange}
         >
-          <MenuItem value={10}>Influenced</MenuItem>
-          <MenuItem value={20}>Influenced by</MenuItem>
-          <MenuItem value={30}>Timeline</MenuItem>
+          <MenuItem value={'influenced'}>Influenced</MenuItem>
+          <MenuItem value={'influencedBy'}>Influenced by</MenuItem>
+          <MenuItem value={'timeline'}>Timeline</MenuItem>
         </Select>
       </FormControl>
     </Box>

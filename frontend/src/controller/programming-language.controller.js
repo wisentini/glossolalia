@@ -10,7 +10,15 @@ export class ProgrammingLanguageController extends Controller {
     return this._repository.createNodes(data, key);
   }
 
-  createEdges(data, key) {
-    return this._repository.createEdges(data, key);
+  createInfluencedEdges(data, key) {
+    return this._repository.createInfluencedEdges(data, key);
+  }
+
+  createInfluencedByEdges(data, key) {
+    return this._repository.createInfluencedByEdges(data, key);
+  }
+
+  createItems(data) {
+    return this._repository.createItems(data);
   }
 }
