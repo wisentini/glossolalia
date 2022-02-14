@@ -1,0 +1,371 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "glossolalia API",
+    "description": "The glossolalia API",
+    "contact": {
+      "name": "Marcos Visentini",
+      "url": "https://github.com/wisentini",
+      "email": "marcosvisentini@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "host": "glossolalia-backend.herokuapp.com",
+  "basePath": "/api",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "servers": [
+    {
+      "url": "https://glossolalia-backend.herokuapp.com/api",
+      "description": "Production server"
+    },
+    {
+      "url": "http://localhost:4269/api/",
+      "description": "Development server"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "ProgrammingLanguage": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int8"
+          },
+          "name": {
+            "type": "string"
+          },
+          "first_appeared": {
+            "type": "integer",
+            "format": "int2"
+          },
+          "paradigm": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "designed_by": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "typing_discipline": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "influenced_by": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "influenced": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "website_url": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source_url": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "filename_extension": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Keyword": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int8"
+          },
+          "programming_language_id": {
+            "type": "integer",
+            "format": "int8"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/programming-languages": {
+      "get": {
+        "summary": "Finds programming languages",
+        "description": "Outside Swagger UI (this page), you can provide multiple query values with comma separated strings. In that case, you'll also need to encode those query values before making a request. For that, you may use [this tool](https://meyerweb.com/eric/tools/dencoder/).",
+        "operationId": "find",
+        "tags": [
+          "Programming languages"
+        ],
+        "parameters": [
+          {
+            "name": "column",
+            "in": "query",
+            "description": "Column names that need to be considered for filter",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "id",
+                  "name",
+                  "first_appeared",
+                  "paradigm",
+                  "designed_by",
+                  "typing_discipline",
+                  "influenced_by",
+                  "influenced",
+                  "website_url",
+                  "source_url",
+                  "filename_extension"
+                ]
+              }
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "int8"
+              }
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "first_appeared",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "int2"
+              }
+            }
+          },
+          {
+            "name": "paradigm",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "designed_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "typing_discipline",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "influenced_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "influenced",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "website_url",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "source_url",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "filename_extension",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProgrammingLanguage"
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No programming language was found"
+          }
+        }
+      }
+    },
+    "/keywords": {
+      "get": {
+        "summary": "Finds programming language keywords",
+        "description": "Outside Swagger UI (this page), you can provide multiple query values with comma separated strings. In that case, you'll also need to encode those query values before making a request. For that, you may use [this tool](https://meyerweb.com/eric/tools/dencoder/).",
+        "operationId": "find",
+        "tags": [
+          "Keywords"
+        ],
+        "parameters": [
+          {
+            "name": "column",
+            "in": "query",
+            "description": "Column names that need to be considered for filter",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "id",
+                  "programming_language_id",
+                  "name"
+                ]
+              }
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "int8"
+              }
+            }
+          },
+          {
+            "name": "programming_language_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "int8"
+              }
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Keyword"
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No keyword was found"
+          }
+        }
+      }
+    }
+  }
+}
