@@ -16,13 +16,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
 app.get('/', (req, res) => {
   res.sendFile('index.html', { root: 'public/home' });
 })
 
 app.use('/api', routes);
+
+app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(process.env.PORT || port, () => {
   console.log(`Listening at port ${port}`);
