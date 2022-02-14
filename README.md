@@ -1,8 +1,10 @@
 # glossolalia
 
-backend: [glossolalia-backend.herokuapp.com](https://glossolalia-backend.herokuapp.com)
+- [backend](https://glossolalia-backend.herokuapp.com)
 
-frontend: [glossolalia-frontend.herokuapp.com](https://glossolalia-frontend.herokuapp.com)
+- [frontend](https://glossolalia-frontend.herokuapp.com)
+
+- [API documentation](https://glossolalia-backend.herokuapp.com/api)
 
 ## O quê?
 
@@ -51,7 +53,5 @@ Para a interface, será utilizada alguma biblioteca JavaScript para visualizaç�
 ## Requisitos não-funcionais
 
 - A API será hospedada na plataforma [Heroku](https://www.heroku.com/), ou seja, qualquer pessoa com acesso à internet poderá consumir os dados do banco de dados.
-
-- Por enquanto, a página web irá rodar de forma local.
 
 - Todo o código desenvolvido será publicado no repositório do GitHub, com a listagem dos comandos necessários para rodar o projeto sem qualquer problema.
