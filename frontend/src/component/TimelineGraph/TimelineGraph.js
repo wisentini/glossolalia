@@ -22,12 +22,24 @@ export const TimelineGraph = (props) => {
     showCurrentTime: false,
     zoomMin: 1.5e+11,
     min: getLowestDate(),
-    max: getHighestDate(),
-    orientation: 'bottom'
+    max: getHighestDate()
+  };
+
+  const getItemYearById = (id) => {
+    const rawItems = items.get();
+    const item = rawItems.find(item => item.id === id);
+    return item ? item.start.getFullYear() : item;
+  };
+
+  const onSelect = (properties) => {
+    const selectedItemId = properties.items.shift();
+    console.log(getItemYearById(selectedItemId));
   };
 
   useEffect(() => {
     const timeline = container.current && new Timeline(container.current, items, options);
+
+    timeline.on('select', onSelect);
   }, [container, items]);
 
   return (

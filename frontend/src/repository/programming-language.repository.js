@@ -80,7 +80,8 @@ export class ProgrammingLanguageRepository extends Repository {
         .map((item, index) => ({
           id: index,
           content: item.name,
-          start: new Date(item.first_appeared, 0)
+          start: new Date(item.first_appeared, 0),
+          title: `${item.first_appeared}`
         }))
     );
   }
