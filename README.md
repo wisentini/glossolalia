@@ -6,6 +6,10 @@
 
 - [API documentation](https://glossolalia-backend.herokuapp.com/api)
 
+## IMPORTANTE
+
+Se você tentou acessar algum dos sites acima e não teve sucesso, provavelmente a razão disso seja a política de dynos do Heroku. Em resumo, a versão grátis permite utilizar no máximo 550 horas de dynos ao mês. Em média, esse limite é ultrapassado por volta da última semana do mês. Então, o meu conselho é esperar até o início do próximo mês e tentar de novo, já que os dynos são resetados. Eu sei, não é a melhor solução, mas por enquanto é a mais acessível :sweat_smile:.
+
 ## O quê?
 
 Este é o meu projeto para o último trabalho da disciplina de Paradigmas de Programação e tem como objetivo criar uma página para visualizar o relacionamento entre linguagens de programação. O usuário poderá informar o critério de relacão e o programa deverá renderizar uma ilustração no formato de grafo, relacionando, quando possível, as linguagens de programação existentes no banco de dados.
