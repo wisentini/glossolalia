@@ -8,7 +8,9 @@
 
 ## IMPORTANTE
 
-Se você tentou acessar algum dos sites acima e não teve sucesso, provavelmente a razão disso seja a política de dynos do Heroku. Em resumo, a versão grátis permite utilizar no máximo 550 horas de dynos ao mês. Em média, esse limite é ultrapassado por volta da última semana do mês. Então, o meu conselho é esperar até o início do próximo mês e tentar de novo, já que os dynos são resetados. Eu sei, não é a melhor solução, mas por enquanto é a mais acessível :sweat_smile:.
+- **(2022-08-25)** A partir de 26 de Outubro, o Heroku deixará de fornecer planos de produtos gratuitos e encerrará serviços de dados gratuitos, ou seja, vou ter que encontrar outra forma de hospedar esse site. Até lá, ele ficará inativo.
+
+- **(2022-06-26)** Se você tentou acessar algum dos sites acima e não teve sucesso, provavelmente a razão disso seja a política de dynos do Heroku. Em resumo, a versão grátis permite utilizar no máximo 550 horas de dynos ao mês. Em média, esse limite é ultrapassado por volta da última semana do mês. Então, o meu conselho é esperar até o início do próximo mês e tentar de novo, já que os dynos são resetados. Eu sei, não é a melhor solução, mas por enquanto é a mais acessível :sweat_smile:.
 
 ## O quê?
 
