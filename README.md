@@ -1,6 +1,6 @@
 # glossolalia
 
-<video src="https://user-images.githubusercontent.com/68865738/199305464-24b0eea8-f700-40de-83b4-bf6e878ee2cd.mp4" width="432" height="209"></video>
+<video src="https://user-images.githubusercontent.com/68865738/199305464-24b0eea8-f700-40de-83b4-bf6e878ee2cd.mp4"></video>
 
 - [backend](https://glossolalia-backend.herokuapp.com)
 
